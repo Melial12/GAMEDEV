@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://ykvn0oi7s5go"]
+
+[ext_resource type="Texture2D" uid="uid://bojpx24j4ihlg" path="res://Asset/download.jpg" id="1_16v0m"]
+[ext_resource type="Script" path="res://menu.gd" id="1_fjrl5"]
+[ext_resource type="AudioStream" uid="uid://bynwddfojc3v5" path="res://Asset/8-bit-background-music-for-arcade-game-come-on-mario-164702.mp3" id="3_y5ui7"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_fjrl5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584.813, 330.438)
+scale = Vector2(3.6364, 4.28186)
+texture = ExtResource("1_16v0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 304.0
+offset_top = 218.0
+offset_right = 921.0
+offset_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="new game" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/new game"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "NEW GAME"
+
+[node name="option" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/option"]
+layout_mode = 2
+text = "OPTION"
+
+[node name="load" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/load"]
+layout_mode = 2
+text = "LOAD GAME"
+
+[node name="setting" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/setting"]
+layout_mode = 2
+text = "SETTING
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y5ui7")
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/new game/Button" to="." method="_on_button_button_up"]

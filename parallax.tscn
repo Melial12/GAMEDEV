@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://gy6exbhkmmxx"]
+
+[ext_resource type="Texture2D" uid="uid://csi8mwd6axwoa" path="res://Asset/parallax/parallax-00.png" id="1_8ec1k"]
+[ext_resource type="Script" path="res://awan2.gd" id="2_8delc"]
+[ext_resource type="Texture2D" uid="uid://cyivd2hhvm3m4" path="res://Asset/parallax/parallax-01.png" id="2_qm2hc"]
+[ext_resource type="Texture2D" uid="uid://cffa7txswvsa1" path="res://Asset/parallax/parallax-02.png" id="3_lof5n"]
+[ext_resource type="Texture2D" uid="uid://d0067rbmfge4x" path="res://Asset/parallax/parallax-03.png" id="4_qkbwn"]
+[ext_resource type="Script" path="res://gunung.gd" id="4_rp7il"]
+[ext_resource type="Texture2D" uid="uid://dlnmocru8ylcn" path="res://Asset/parallax/parallax-04.png" id="5_8bfk3"]
+[ext_resource type="Script" path="res://bayangan.gd" id="6_wpc3h"]
+[ext_resource type="Script" path="res://pohon.gd" id="8_s0j4h"]
+
+[node name="parallax" type="ParallaxBackground"]
+
+[node name="langit" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="langit"]
+position = Vector2(587, 178)
+texture = ExtResource("1_8ec1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="langit/Sprite2D"]
+position = Vector2(1396, -20)
+texture = ExtResource("1_8ec1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="langit/Sprite2D/Sprite2D"]
+position = Vector2(-2775, 4)
+texture = ExtResource("1_8ec1k")
+
+[node name="awan" type="ParallaxLayer" parent="."]
+script = ExtResource("2_8delc")
+
+[node name="Sprite2D" type="Sprite2D" parent="awan"]
+position = Vector2(621, 187)
+texture = ExtResource("2_qm2hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="awan/Sprite2D"]
+position = Vector2(1382, 13)
+texture = ExtResource("2_qm2hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="awan/Sprite2D/Sprite2D"]
+position = Vector2(-2759, -17)
+texture = ExtResource("2_qm2hc")
+
+[node name="gunung" type="ParallaxLayer" parent="."]
+script = ExtResource("4_rp7il")
+
+[node name="Sprite2D" type="Sprite2D" parent="gunung"]
+position = Vector2(381, 312)
+texture = ExtResource("3_lof5n")
+offset = Vector2(240, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="gunung/Sprite2D"]
+position = Vector2(-1369, -18)
+texture = ExtResource("3_lof5n")
+offset = Vector2(240, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="gunung/Sprite2D/Sprite2D"]
+position = Vector2(2772, 24)
+texture = ExtResource("3_lof5n")
+offset = Vector2(240, 10)
+
+[node name="bayangan" type="ParallaxLayer" parent="."]
+script = ExtResource("6_wpc3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="bayangan"]
+position = Vector2(596, 332)
+texture = ExtResource("4_qkbwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="bayangan/Sprite2D"]
+position = Vector2(-1364, -4)
+texture = ExtResource("4_qkbwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="bayangan/Sprite2D/Sprite2D"]
+position = Vector2(2777, 2)
+texture = ExtResource("4_qkbwn")
+
+[node name="pohon" type="ParallaxLayer" parent="."]
+script = ExtResource("8_s0j4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="pohon"]
+position = Vector2(425, 405)
+texture = ExtResource("5_8bfk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="pohon/Sprite2D"]
+position = Vector2(-1185, 3)
+texture = ExtResource("5_8bfk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="pohon/Sprite2D/Sprite2D"]
+position = Vector2(2609, -19)
+scale = Vector2(0.983333, 1.07031)
+texture = ExtResource("5_8bfk3")

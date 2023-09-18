@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://wgv8rpyr0jww"]
+
+[ext_resource type="PackedScene" uid="uid://cbc37t6gv57e8" path="res://jalan.tscn" id="1_ck8ql"]
+[ext_resource type="PackedScene" uid="uid://htkgwjwgbnnc" path="res://carakter.tscn" id="2_4mna4"]
+[ext_resource type="PackedScene" uid="uid://gy6exbhkmmxx" path="res://parallax.tscn" id="3_70fj5"]
+
+[node name="animasi" type="Node2D"]
+
+[node name="jalan" parent="." instance=ExtResource("1_ck8ql")]
+position = Vector2(11, 237)
+
+[node name="carakter" parent="." instance=ExtResource("2_4mna4")]
+position = Vector2(-78, 384)
+
+[node name="Camera2D" type="Camera2D" parent="carakter"]
+position = Vector2(650, -55)
+
+[node name="parallax" parent="." instance=ExtResource("3_70fj5")]
