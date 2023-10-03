@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg5prm8c36kqv"]
+
+[ext_resource type="Texture2D" uid="uid://crrmmbu8k46tl" path="res://Asset/enemy/enemy.png" id="1_6vvqt"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_my6oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sxk4"]
+size = Vector2(40, 41)
+
+[sub_resource type="Animation" id="Animation_t42tk"]
+resource_name = "satu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_2em70"]
+resource_name = "dua"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.6, 1.1, 1.6, 2.1, 2.6, 3.1, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 5, 6, 5, 6, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_sn3dk"]
+resource_name = "tiga"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cujmt"]
+_data = {
+"dua": SubResource("Animation_2em70"),
+"satu": SubResource("Animation_t42tk"),
+"tiga": SubResource("Animation_sn3dk")
+}
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_my6oy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(98, 39)
+scale = Vector2(1.8125, 2.4375)
+texture = ExtResource("1_6vvqt")
+flip_h = true
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(97, 30.5)
+shape = SubResource("RectangleShape2D_0sxk4")
+
+[node name="platformdetactor" type="RayCast2D" parent="."]
+position = Vector2(118, 5)
+target_position = Vector2(2, 64)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(98, 25)
+target_position = Vector2(0, 73)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(76, 8)
+target_position = Vector2(1, 67)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cujmt")
+}
